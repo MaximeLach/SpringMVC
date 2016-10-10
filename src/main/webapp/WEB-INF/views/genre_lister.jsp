@@ -14,9 +14,13 @@
     </head>
     <body>
         <h1>Liste des genres</h1>
+        <div>
         <c:forEach items="${genres}" var="mesgenres">
             ${mesgenres.nom}
+            <a href="supprimer_genre/${mesgenres.id}">Supprimer</a>
+            <a href="modifier_genre/${mesgenres.id}">Editer</a>
             <br>
         </c:forEach>
+        </div>
     </body>
 </html>
