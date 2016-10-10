@@ -5,13 +5,17 @@
  */
 package streaming.service;
 
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import streaming.entity.Film;
+import streaming.spring.SpringConfig;
 
 /**
  *
  * @author tom
  */
+
 public interface FilmCrudService extends CrudRepository<Film, Long>{
     
 }

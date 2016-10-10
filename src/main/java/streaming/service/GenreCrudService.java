@@ -5,6 +5,7 @@
  */
 package streaming.service;
 
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import streaming.entity.Genre;
 
@@ -13,5 +14,5 @@ import streaming.entity.Genre;
  * @author tom
  */
 public interface GenreCrudService extends CrudRepository<Genre, Long>{
-    
+    public List<Genre> findAllByOrderByNom();
 }
