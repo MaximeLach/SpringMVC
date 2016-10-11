@@ -10,6 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <div>
+    <a href="lister_films">Films</a>
+    <a href="liste_genre">Genres</a>
+    </div>
     </head>
     <body>
         <h1>${titre}</h1>

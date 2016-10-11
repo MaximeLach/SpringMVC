@@ -5,12 +5,9 @@
  */
 package streaming.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import streaming.entity.Genre;
 import streaming.service.GenreCrudService;
-import streaming.spring.SpringConfig;
 
 /**
  *
@@ -29,6 +25,19 @@ import streaming.spring.SpringConfig;
 public class GenreController {
     @Autowired
     private GenreCrudService crud;
+    
+    @RequestMapping(value="/ajouter_genre",method = RequestMethod.POST)
+    public String ajouterPOST(@ModelAttribute("genreAct") Genre genre){
+        crud.save(genre);
+        return "redirect:/liste_genre";
+    }
+    
+    @RequestMapping(value="/ajouter_genre",method = RequestMethod.GET)
+    public String ajouterPOST(Model model){
+        Genre genre = new Genre();
+        model.addAttribute("genre", genre);
+        return "genre_ajouter.jsp";
+    }
     
     @RequestMapping(value="/modifier_genre",method = RequestMethod.POST)
     public String editerPOST(@ModelAttribute("genreAct") Genre genre){
@@ -49,7 +58,7 @@ public class GenreController {
         return "redirect:/liste_genre";
     }
    
-    @RequestMapping(value={"/liste_genre","/"}, method = RequestMethod.GET)
+    @RequestMapping(value="/liste_genre", method = RequestMethod.GET)
     public String lister(Model m){
         List<Genre> genres = crud.findAllByOrderByNom(); 
         m.addAttribute("genres", genres);

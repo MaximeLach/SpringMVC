@@ -13,16 +13,16 @@
         <title>JSP Page</title>
     </head>
     <div>
-    <a href="ajouter_genre">Ajouter genre</a>
+    <a href="ajouter_film">Ajouter Film</a>
     </div>
     <br>
     <body>
-        <h1>Liste des genres</h1>
+        <h1>Liste des films</h1>
         <div>
-        <c:forEach items="${genres}" var="mesgenres">
-            ${mesgenres.nom}
-            <a href="supprimer_genre/${mesgenres.id}">Supprimer</a>
-            <a href="modifier_genre/${mesgenres.id}">Editer</a>
+        <c:forEach items="${films}" var="mesfilms">
+            ${mesfilms.titre}
+            <a href="supprimer_film/${mesfilms.id}">Supprimer</a>
+            <a href="editer_film/${mesfilms.id}">Editer</a>
             <br>
         </c:forEach>
         </div>

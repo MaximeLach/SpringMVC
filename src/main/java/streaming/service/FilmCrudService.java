@@ -5,10 +5,12 @@
  */
 package streaming.service;
 
+import java.util.List;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import streaming.entity.Film;
+import streaming.entity.Genre;
 import streaming.spring.SpringConfig;
 
 /**
@@ -17,5 +19,5 @@ import streaming.spring.SpringConfig;
  */
 
 public interface FilmCrudService extends CrudRepository<Film, Long>{
-    
+    public List<Film> findAllByOrderByTitre();
 }

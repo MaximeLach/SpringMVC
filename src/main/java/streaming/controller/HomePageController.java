@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomePageController {
-    @RequestMapping(value="/home_page", method = RequestMethod.GET) 
+    @RequestMapping(value="/", method = RequestMethod.GET) 
     public String home(Model m){
         m.addAttribute("titre", "Bienvenue sur ce mangnifique site!");
         return "home_page.jsp";
